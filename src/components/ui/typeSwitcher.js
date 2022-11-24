@@ -48,6 +48,7 @@ export const TypeSwitcher = ({ toggleSwitch, isEnabled, main, legal }) => {
 const styles = StyleSheet.create({
   text: {
     fontSize: 17,
+    fontFamily: "Roboto"
   },
   textTypeCon: {
     alignItems: "center",

@@ -28,11 +28,11 @@ export const MyNavigation = ({}) => {
       screenOptions={{
         tabBarStyle:{
           backgroundColor: constats.MAIN_COLOR,
-          borderTopLeftRadius: 30,
-          borderTopRightRadius: 30,
+          borderTopLeftRadius: 20,
+          borderTopRightRadius: 20,
         },
         tabBarLabelStyle: {
-           fontFamily: "roboto-bold",
+           fontFamily: "Roboto",
           fontSize: 19,
           marginStart: 0,
           paddingStart: 0,
@@ -43,7 +43,7 @@ export const MyNavigation = ({}) => {
         tabBarActiveTintColor: "white",
         tabBarInactiveTintColor: "#B9B9B9",
         headerTitleStyle: {
-          fontFamily: "roboto-bold",
+          fontFamily: "Roboto",
           color: "white",
           marginBottom: 7,
         },
@@ -51,8 +51,8 @@ export const MyNavigation = ({}) => {
         headerStyle: {
           height: 70,
           backgroundColor: constats.MAIN_COLOR,
-          borderBottomLeftRadius: 40,
-          borderBottomRightRadius: 40,
+          borderBottomLeftRadius: 20,
+          borderBottomRightRadius: 20,
         }
       }}
       initialRouteName="Русский"

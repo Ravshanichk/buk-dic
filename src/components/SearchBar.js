@@ -67,6 +67,7 @@ export const SearchBar = ({language, onPress, words, placeholder }) => {
     <View style={styles.container}>
       <View style={styles.searchBar}>
         <TextInput
+          fontStyle="italic"
           autoCorrect={false}
           autoCapitalize="none"
           placeholder={placeholder}
@@ -83,7 +84,7 @@ export const SearchBar = ({language, onPress, words, placeholder }) => {
           <AntDesign name="search1" color="white" size={20} />
         </AppButton>
       </View>
-      {filteredWord && (
+      {filteredWord && value && (
         <View style={styles.listContainer}>
             <FlatList
           data={filteredWord}
@@ -109,9 +110,11 @@ const styles = StyleSheet.create({
     marginTop: 5,
     backgroundColor: "white",
     width: "100%",
-    borderRadius: 4,
-    borderWidth: 0.5,
-    borderColor: "f0f0f0",
+    borderBottomLeftRadius: 4,
+    borderBottomRightRadius: 4,
+    borderWidth: 0.4,
+    borderColor: "#D5D5D5",
+    borderTopColor: "white",
     maxHeight: Dimensions.get("window").height - 450,
     position:"absolute",
     top: 42,
