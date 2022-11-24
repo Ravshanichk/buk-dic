@@ -4,6 +4,7 @@ import { Alert, Dimensions, StyleSheet, Switch, Text, View } from "react-native"
 import { enRuKz } from "../../assets/enRuKz";
 import { enJur } from "../../assets/jurWords/enJur";
 import { SearchBar } from "../components/SearchBar";
+import { TypeSwitcher } from "../components/ui/typeSwitcher";
 import constats from "../constats";
 
 export const EngScreen = () => {
@@ -38,17 +39,7 @@ export const EngScreen = () => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.switchContainer}>
-        <Text style={{fontWeight:isEnabled?"normal":"bold"}}>Main</Text>
-        <Switch
-          trackColor={{ false: "#81b0ff", true: "#81b0ff" }}
-          thumbColor={isEnabled ? "#f4f3f4" : "#f4f3f4"}
-          ios_backgroundColor="#3e3e3e"
-          onValueChange={toggleSwitch}
-          value={isEnabled}
-        />
-         <Text style={{fontWeight:isEnabled?"bold":"normal"}}>Legal</Text>
-      </View>
+      <TypeSwitcher main={"Main"} legal={"Legal"} toggleSwitch={toggleSwitch} isEnabled={isEnabled}/>
      
       <SearchBar
         language="en"
@@ -100,12 +91,7 @@ export const EngScreen = () => {
 };
 
 const styles = StyleSheet.create({
-  switchContainer:{
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-    marginBottom: 6
-  },
+
   headerResult: {
     fontFamily: "roboto-regular",
     fontSize: 14,
@@ -115,7 +101,6 @@ const styles = StyleSheet.create({
     width: "100%",
   },
   container: {
-    backgroundColor: "white",
     paddingHorizontal: 30,
     paddingTop: 5,
     justifyContent: "flex-start",

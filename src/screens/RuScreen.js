@@ -5,6 +5,7 @@ import { ruKzEn } from "../../assets/ruKzEn";
 import { rusJur } from "../../assets/jurWords/russianJur";
 import { SearchBar } from "../components/SearchBar";
 import constats from "../constats";
+import { TypeSwitcher } from "../components/ui/typeSwitcher";
 
 export const RuScreen = () => {
   const [kz, setKz] = useState();
@@ -38,17 +39,7 @@ export const RuScreen = () => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.switchContainer}>
-        <Text style={{fontWeight:isEnabled?"normal":"bold"}}>Общий</Text>
-        <Switch
-          trackColor={{ false: "#81b0ff", true: "#81b0ff" }}
-          thumbColor={isEnabled ? "#f4f3f4" : "#f4f3f4"}
-          ios_backgroundColor="#3e3e3e"
-          onValueChange={toggleSwitch}
-          value={isEnabled}
-        />
-         <Text style={{fontWeight:isEnabled?"bold":"normal"}}>Юридический</Text>
-      </View>
+      <TypeSwitcher main={"Общий"} legal={"Юридический"} toggleSwitch={toggleSwitch} isEnabled={isEnabled}/>
      
       <SearchBar
         language="ru"
@@ -100,12 +91,7 @@ export const RuScreen = () => {
 };
 
 const styles = StyleSheet.create({
-  switchContainer:{
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-    marginBottom: 6
-  },
+
   headerResult: {
     fontFamily: "roboto-regular",
     fontSize: 14,
@@ -115,7 +101,6 @@ const styles = StyleSheet.create({
     width: "100%",
   },
   container: {
-    backgroundColor: "white",
     paddingHorizontal: 30,
     paddingTop: 5,
     justifyContent: "flex-start",
@@ -123,7 +108,7 @@ const styles = StyleSheet.create({
     // borderTopWidth: 1,
     // borderBottomWidth: 1,
     borderColor: "#003366",
-    height: Dimensions.get("window").height - 135,
+    height: Dimensions.get("window").height,
     with: Dimensions.get("window").width,
   },
   resultsWrapper: {

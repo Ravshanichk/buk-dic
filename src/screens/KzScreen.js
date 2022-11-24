@@ -5,6 +5,7 @@ import { kzJur } from "../../assets/jurWords/kazakhJur";
 import { SearchBar } from "../components/SearchBar";
 import constats from "../constats";
 import { kzRuEn } from "../../assets/kzRuEn";
+import { TypeSwitcher } from "../components/ui/typeSwitcher";
 
 export const KzScreen = () => {
   const [ru, setRu] = useState();
@@ -35,21 +36,9 @@ export const KzScreen = () => {
       });
     }
   };
-
   return (
     <View style={styles.container}>
-      <View style={styles.switchContainer}>
-        <Text style={{fontWeight:isEnabled?"normal":"bold"}}>Жалпы</Text>
-        <Switch
-          trackColor={{ false: "#81b0ff", true: "#81b0ff" }}
-          thumbColor={isEnabled ? "#f4f3f4" : "#f4f3f4"}
-          ios_backgroundColor="#3e3e3e"
-          onValueChange={toggleSwitch}
-          value={isEnabled}
-        />
-         <Text style={{fontWeight:isEnabled?"bold":"normal"}}>Заңды</Text>
-      </View>
-     
+      <TypeSwitcher main={"Жалпы"} legal={"Заңды"} toggleSwitch={toggleSwitch} isEnabled={isEnabled}/>
       <SearchBar
         language="kz"
         placeholder={"Сөз енгізіңіз"}
@@ -100,12 +89,7 @@ export const KzScreen = () => {
 };
 
 const styles = StyleSheet.create({
-  switchContainer:{
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-    marginBottom: 6
-  },
+
   headerResult: {
     fontFamily: "roboto-regular",
     fontSize: 14,
@@ -115,7 +99,6 @@ const styles = StyleSheet.create({
     width: "100%",
   },
   container: {
-    backgroundColor: "white",
     paddingHorizontal: 30,
     paddingTop: 5,
     justifyContent: "flex-start",

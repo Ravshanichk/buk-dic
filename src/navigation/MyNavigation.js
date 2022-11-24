@@ -1,6 +1,6 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { NavigationContainer } from "@react-navigation/native";
+import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import { AntDesign, MaterialIcons } from "@expo/vector-icons";
 
 import { EngScreen } from "../screens/EngScreen";
@@ -11,9 +11,18 @@ import { TabIcon } from "../components/ui/TabIcon";
 
 const Tab = createBottomTabNavigator();
 
+const MyTheme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    background: "white",
+    text: "black"
+  },
+};
+
 export const MyNavigation = ({}) => {
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={MyTheme}>
       <Tab.Navigator
       screenOptions={{
         tabBarLabelStyle: {
