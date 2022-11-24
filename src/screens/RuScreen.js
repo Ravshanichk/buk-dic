@@ -1,18 +1,20 @@
 import React, { useState } from "react";
-import { Alert, Dimensions, StyleSheet, Switch, Text, View } from "react-native";
+import { Dimensions, StyleSheet, View } from "react-native";
 
 import { ruKzEn } from "../../assets/ruKzEn";
 import { rusJur } from "../../assets/jurWords/russianJur";
 import { SearchBar } from "../components/SearchBar";
-import constats from "../constats";
 import { TypeSwitcher } from "../components/ui/typeSwitcher";
+import { TranslateResult } from "../components/ui/TranslateResult";
 
 export const RuScreen = () => {
   const [kz, setKz] = useState();
   const [en, setEn] = useState();
 
   const [isEnabled, setIsEnabled] = useState(false);
-  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+  const toggleSwitch = (switchState) => {
+    setIsEnabled(switchState)
+  };
 
   const activeDictionary = isEnabled?rusJur:ruKzEn;
 
@@ -49,54 +51,18 @@ export const RuScreen = () => {
       />
       <View style={styles.resultsWrapper}>
         {kz ? (
-          <View style={styles.result}>
-            <Text style={styles.headerResult}>Казахский</Text>
-            {Array.isArray(kz) ? (
-              kz.map((w, index) => {
-                return (
-                  <Text style={styles.resultText} key={index}>
-                    {w}
-                  </Text>
-                );
-              })
-            ) : (
-              <Text style={styles.resultText}>{kz}</Text>
-            )}
-          </View>
+         <TranslateResult langWord={kz} language={"Казахский"}/>
         ) : null}
         {en && (
-          <View style={styles.result}>
-            <Text style={styles.headerResult}>Английский</Text>
-            {Array.isArray(en) ? (
-              en.map((w, index) => {
-                return (
-                  <Text style={styles.resultText} key={index}>
-                    {w}
-                  </Text>
-                );
-              })
-            ) : (
-              <Text style={styles.resultText}>{en}</Text>
-            )}
-          </View>
+          <TranslateResult langWord={en} language={"Английский"}/>
         )}
       </View>
-      {/* <View style={styles.seachButtonContainer}>
-        <AppButton borderRadius={20}>
-          <AntDesign name="search1" color="white" size={20} />
-        </AppButton>
-      </View> */}
     </View>
   );
 };
 
 const styles = StyleSheet.create({
 
-  headerResult: {
-    fontFamily: "roboto-regular",
-    fontSize: 14,
-    color: "#a2a1a7",
-  },
   titleResult: {
     width: "100%",
   },
@@ -125,24 +91,6 @@ const styles = StyleSheet.create({
     // backgroundColor: "#fff",
 
     // elevation: 7,
-  },
-  result: {
-    width: "100%",
-    fontFamily: constats.poppins_light,
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-    borderRadius: 4,
-    shadowColor: "#000",
-    shadowRadius: 2,
-    shadowOpacity: 0.3,
-    shadowOffset: { width: 2, height: 2 },
-    backgroundColor: "#fff",
-
-    elevation: 7,
-    marginVertical: 10,
-  },
-  resultText: {
-    fontSize: 18,
   },
   seachButtonContainer: {
     position: "absolute",

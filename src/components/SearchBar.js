@@ -1,6 +1,7 @@
 import { AntDesign } from "@expo/vector-icons";
 import React, { useEffect, useState } from "react";
 import { Dimensions, Keyboard, FlatList, StyleSheet, Text, TextInput, View, Alert, TouchableOpacity } from "react-native";
+import { classic } from "react-native-web/dist/cjs/exports/StyleSheet/compiler";
 import constats from "../constats";
 import { AppButton } from "./ui/AppButton";
 
@@ -9,13 +10,13 @@ export const SearchBar = ({language, onPress, words, placeholder }) => {
   const [filteredWord, setFilter] = useState();
 
   useEffect(()=>{
-    setFilter([])
+    setFilter(null)
   },[words])
 
   const pressHandler = () => {
     if (value.trim()) {
       onPress(value);
-      setFilter([]);
+      setFilter(null);
       Keyboard.dismiss()
     } 
   };
@@ -23,7 +24,7 @@ export const SearchBar = ({language, onPress, words, placeholder }) => {
   const pressSuggestionHandler = (word) => {
     setValue(word)
     onPress(word);
-    setFilter([]);
+    setFilter(null);
     Keyboard.dismiss()
   }
 
@@ -82,7 +83,7 @@ export const SearchBar = ({language, onPress, words, placeholder }) => {
           <AntDesign name="search1" color="white" size={20} />
         </AppButton>
       </View>
-      {filteredWord && value && (
+      {filteredWord && (
         <View style={styles.listContainer}>
             <FlatList
           data={filteredWord}
@@ -91,7 +92,6 @@ export const SearchBar = ({language, onPress, words, placeholder }) => {
           }}
         />
         </View>
-        
       )}
     </View>
   );
@@ -99,17 +99,24 @@ export const SearchBar = ({language, onPress, words, placeholder }) => {
 
 const styles = StyleSheet.create({
   filteredResult:{
-    marginHorizontal: 4,
-    marginVertical: 3,
+    marginLeft: 10,
+    marginVertical: 2,
     fontSize: 18,
-    lineHeight: 28
+    lineHeight: 28,
+    
   },
   listContainer:{
-    backgroundColor: "#f0f0f0",
+    marginTop: 5,
+    backgroundColor: "white",
     width: "100%",
     borderRadius: 4,
+    borderWidth: 0.5,
+    borderColor: "f0f0f0",
     maxHeight: Dimensions.get("window").height - 450,
-    position:"relative"
+    position:"absolute",
+    top: 42,
+    zIndex: 100
+
   }, 
   container: {
     alignItems: "center",

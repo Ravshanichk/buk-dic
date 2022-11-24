@@ -24,19 +24,39 @@ export const MyNavigation = ({}) => {
   return (
     <NavigationContainer theme={MyTheme}>
       <Tab.Navigator
+      
       screenOptions={{
-        tabBarLabelStyle: {
-           fontFamily: "roboto-regular",
-          fontSize: 15,
-          marginBottom: 7,
+        tabBarStyle:{
+          backgroundColor: constats.MAIN_COLOR,
+          borderTopLeftRadius: 30,
+          borderTopRightRadius: 30,
         },
-        headerTitleStyle: {
-          marginHorizontal: 13,
+        tabBarLabelStyle: {
+           fontFamily: "roboto-bold",
+          fontSize: 19,
+          marginStart: 0,
+          paddingStart: 0,
+          marginBottom: 7,
         },
         tabBarLabelPosition: "beside-icon",
         tabBarIconStyle: { display: "none" },
+        tabBarActiveTintColor: "white",
+        tabBarInactiveTintColor: "#B9B9B9",
+        headerTitleStyle: {
+          fontFamily: "roboto-bold",
+          color: "white",
+          marginBottom: 7,
+        },
+        headerTitleAlign: "center",
+        headerStyle: {
+          height: 70,
+          backgroundColor: constats.MAIN_COLOR,
+          borderBottomLeftRadius: 40,
+          borderBottomRightRadius: 40,
+        }
       }}
-      initialRouteName="Русский">
+      initialRouteName="Русский"
+      >
         <Tab.Screen
           name="Русский"
           component={RuScreen}
@@ -49,11 +69,7 @@ export const MyNavigation = ({}) => {
          <Tab.Screen
           name="English"
           component={EngScreen}
-          options={{
-            tabBarIcon: ({}) => {
-              return <AntDesign name="infocirlce" size={24} color={constats.MAIN_COLOR} />;
-            },
-          }}
+          
         />
       </Tab.Navigator>
     </NavigationContainer>

@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { Alert, Dimensions, StyleSheet, Switch, Text, View } from "react-native";
+import { Dimensions, StyleSheet, View } from "react-native";
 
 import { enRuKz } from "../../assets/enRuKz";
 import { enJur } from "../../assets/jurWords/enJur";
 import { SearchBar } from "../components/SearchBar";
+import { TranslateResult } from "../components/ui/TranslateResult";
 import { TypeSwitcher } from "../components/ui/typeSwitcher";
-import constats from "../constats";
 
 export const EngScreen = () => {
   const [kz, setKz] = useState();
@@ -43,60 +43,23 @@ export const EngScreen = () => {
      
       <SearchBar
         language="en"
-        placeholder={"Введите слово"}
+        placeholder={"Type a word"}
         words={activeDictionary}
         onPress={onSearch}
       />
       <View style={styles.resultsWrapper}>
-        {kz ? (
-          <View style={styles.result}>
-            <Text style={styles.headerResult}>Qazaq</Text>
-            {Array.isArray(kz) ? (
-              kz.map((w, index) => {
-                return (
-                  <Text style={styles.resultText} key={index}>
-                    {w}
-                  </Text>
-                );
-              })
-            ) : (
-              <Text style={styles.resultText}>{kz}</Text>
-            )}
-          </View>
+      {kz ? (
+         <TranslateResult langWord={kz} language={"Qazaq"}/>
         ) : null}
         {ru && (
-          <View style={styles.result}>
-            <Text style={styles.headerResult}>Russian</Text>
-            {Array.isArray(ru) ? (
-              ru.map((w, index) => {
-                return (
-                  <Text style={styles.resultText} key={index}>
-                    {w}
-                  </Text>
-                );
-              })
-            ) : (
-              <Text style={styles.resultText}>{ru}</Text>
-            )}
-          </View>
+          <TranslateResult langWord={ru} language={"Russian"}/>
         )}
       </View>
-      {/* <View style={styles.seachButtonContainer}>
-        <AppButton borderRadius={20}>
-          <AntDesign name="search1" color="white" size={20} />
-        </AppButton>
-      </View> */}
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-
-  headerResult: {
-    fontFamily: "roboto-regular",
-    fontSize: 14,
-    color: "#a2a1a7",
-  },
   titleResult: {
     width: "100%",
   },
@@ -125,24 +88,6 @@ const styles = StyleSheet.create({
     // backgroundColor: "#fff",
 
     // elevation: 7,
-  },
-  result: {
-    width: "100%",
-    fontFamily: constats.poppins_light,
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-    borderRadius: 4,
-    shadowColor: "#000",
-    shadowRadius: 2,
-    shadowOpacity: 0.3,
-    shadowOffset: { width: 2, height: 2 },
-    backgroundColor: "#fff",
-
-    elevation: 7,
-    marginVertical: 10,
-  },
-  resultText: {
-    fontSize: 18,
   },
   seachButtonContainer: {
     position: "absolute",
