@@ -67,7 +67,6 @@ export const SearchBar = ({language, onPress, words, placeholder }) => {
     <View style={styles.container}>
       <View style={styles.searchBar}>
         <TextInput
-          fontStyle="italic"
           autoCorrect={false}
           autoCapitalize="none"
           placeholder={placeholder}

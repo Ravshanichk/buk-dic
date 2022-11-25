@@ -60,16 +60,17 @@ export const MyNavigation = ({}) => {
         <Tab.Screen
           name="Русский"
           component={RuScreen}
+          options={{ tabBarLabel: "RU"}}
         />
         <Tab.Screen
           name="Қазақ"
           component={KzScreen}
-          
+          options={{ tabBarLabel: "KZ"}}
         />
          <Tab.Screen
           name="English"
           component={EngScreen}
-          
+          options={{ tabBarLabel: "EN"}}
         />
       </Tab.Navigator>
     </NavigationContainer>

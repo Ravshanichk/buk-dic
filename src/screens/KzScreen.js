@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
   },
   container: {
     paddingHorizontal: 30,
-    paddingTop: 5,
+    paddingTop: 20,
     justifyContent: "flex-start",
     alignItems: "center",
     // borderTopWidth: 1,
