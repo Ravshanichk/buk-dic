@@ -8,6 +8,7 @@ import constats from "../constats";
 import { RuScreen } from "../screens/RuScreen";
 import { KzScreen } from "../screens/KzScreen";
 import { TabIcon } from "../components/ui/TabIcon";
+import { Dimensions } from "react-native";
 
 const Tab = createBottomTabNavigator();
 
@@ -32,7 +33,7 @@ export const MyNavigation = ({}) => {
           borderTopRightRadius: 20,
         },
         tabBarLabelStyle: {
-           fontFamily: "Roboto",
+           fontFamily: "roboto-regular",
           fontSize: 19,
           marginStart: 0,
           paddingStart: 0,
@@ -43,13 +44,13 @@ export const MyNavigation = ({}) => {
         tabBarActiveTintColor: "white",
         tabBarInactiveTintColor: "#B9B9B9",
         headerTitleStyle: {
-          fontFamily: "Roboto",
+          fontFamily: "roboto-regular",
           color: "white",
-          marginBottom: 7,
+          // marginBottom: Dimensions.get('window').height<=2340?7:7,
         },
         headerTitleAlign: "center",
         headerStyle: {
-          height: 70,
+          // height: Dimensions.get('window').height<=2340?80:70,
           backgroundColor: constats.MAIN_COLOR,
           borderBottomLeftRadius: 20,
           borderBottomRightRadius: 20,

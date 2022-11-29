@@ -115,8 +115,8 @@ const styles = StyleSheet.create({
     borderColor: "#D5D5D5",
     borderTopColor: "white",
     maxHeight: Dimensions.get("window").height - 450,
-    position:"absolute",
-    top: 42,
+    position:"relative",
+    // top: 42,
     zIndex: 100
 
   }, 

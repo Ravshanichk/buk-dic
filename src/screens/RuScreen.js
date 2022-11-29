@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Dimensions, StyleSheet, View } from "react-native";
+import { Dimensions, SafeAreaView, StyleSheet, View } from "react-native";
 
 import { ruKzEn } from "../../assets/ruKzEn";
 import { rusJur } from "../../assets/jurWords/russianJur";
@@ -40,6 +40,7 @@ export const RuScreen = () => {
   };
 
   return (
+    <SafeAreaView>
     <View style={styles.container}>
       <TypeSwitcher main={"Общий"} legal={"Юридический"} toggleSwitch={toggleSwitch} isEnabled={isEnabled}/>
      
@@ -58,6 +59,7 @@ export const RuScreen = () => {
         )}
       </View>
     </View>
+    </SafeAreaView>
   );
 };
 

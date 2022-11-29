@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
         fontFamily: "roboto-regular",
         fontSize: 14,
         color: "#a2a1a7",
-        fontStyle: "italic"
+        fontStyle: ""
       },
       result: {
         width: "100%",
@@ -40,11 +40,12 @@ const styles = StyleSheet.create({
         shadowOffset: { width: 2, height: 2 },
         backgroundColor: "#fff",
     
-        elevation: 7,
+        elevation: 0,
         marginVertical: 10,
+        zIndex: 1
       },
       resultText: {
         fontSize: 22,
-        fontFamily: "serif"
+        fontFamily: Platform.OS==="ios"?"Times New Roman":"serif"
       },
 });

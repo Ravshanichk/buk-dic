@@ -47,15 +47,15 @@ export const TypeSwitcher = ({ toggleSwitch, isEnabled, main, legal }) => {
 
 const styles = StyleSheet.create({
   text: {
-    fontSize: 17,
-    fontFamily: "Roboto"
+    fontSize: 13,
+    fontFamily: "roboto-regular"
   },
   textTypeCon: {
     alignItems: "center",
-    paddingVertical: 8,
-    paddingHorizontal: 14,
+    paddingVertical: 4,
+    paddingHorizontal: 8,
     borderRadius: 40,
-    width: Dimensions.get('window').width>400 ? 160: 140,
+    width: Dimensions.get('window').width>400 ? 150: 130,
   },
   switchContainer: {
     flexDirection: "row",

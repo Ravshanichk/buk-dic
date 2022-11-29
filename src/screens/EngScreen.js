@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Dimensions, StyleSheet, View } from "react-native";
+import { Dimensions, SafeAreaView, StyleSheet, View } from "react-native";
 
 import { enRuKz } from "../../assets/enRuKz";
 import { enJur } from "../../assets/jurWords/enJur";
@@ -38,6 +38,7 @@ export const EngScreen = () => {
   };
 
   return (
+    <SafeAreaView>
     <View style={styles.container}>
       <TypeSwitcher main={"Main"} legal={"Legal"} toggleSwitch={toggleSwitch} isEnabled={isEnabled}/>
      
@@ -56,6 +57,7 @@ export const EngScreen = () => {
         )}
       </View>
     </View>
+    </SafeAreaView>
   );
 };
 

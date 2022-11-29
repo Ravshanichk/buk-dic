@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Dimensions, StyleSheet, View } from "react-native";
+import { Dimensions, SafeAreaView, StyleSheet, View } from "react-native";
 
 import { kzJur } from "../../assets/jurWords/kazakhJur";
 import { SearchBar } from "../components/SearchBar";
@@ -37,6 +37,7 @@ export const KzScreen = () => {
     }
   };
   return (
+    <SafeAreaView>
     <View style={styles.container}>
       <TypeSwitcher main={"Жалпы"} legal={"Заңды"} toggleSwitch={toggleSwitch} isEnabled={isEnabled}/>
       <SearchBar
@@ -54,6 +55,7 @@ export const KzScreen = () => {
         )}
       </View>
     </View>
+    </SafeAreaView>
   );
 };
 
