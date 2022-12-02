@@ -40,7 +40,7 @@ export const EngScreen = () => {
   return (
     <SafeAreaView>
     <View style={styles.container}>
-      <TypeSwitcher main={"Main"} legal={"Legal"} toggleSwitch={toggleSwitch} isEnabled={isEnabled}/>
+      <TypeSwitcher main={"General"} legal={"Law"} toggleSwitch={toggleSwitch} isEnabled={isEnabled}/>
      
       <SearchBar
         language="en"

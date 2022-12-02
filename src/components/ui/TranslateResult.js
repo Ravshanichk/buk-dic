@@ -23,10 +23,10 @@ export const TranslateResult = ({langWord, language}) => {
 
 const styles = StyleSheet.create({
     headerResult: {
-        fontFamily: "roboto-regular",
+        fontFamily: Platform.OS==="ios"?"roboto-regular":"Roboto",
         fontSize: 14,
         color: "#a2a1a7",
-        fontStyle: ""
+        fontStyle: "italic"
       },
       result: {
         width: "100%",
@@ -40,9 +40,8 @@ const styles = StyleSheet.create({
         shadowOffset: { width: 2, height: 2 },
         backgroundColor: "#fff",
     
-        elevation: 0,
+        elevation: 7,
         marginVertical: 10,
-        zIndex: 1
       },
       resultText: {
         fontSize: 22,

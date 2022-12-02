@@ -1,14 +1,12 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
-import { AntDesign, MaterialIcons } from "@expo/vector-icons";
 
 import { EngScreen } from "../screens/EngScreen";
 import constats from "../constats";
 import { RuScreen } from "../screens/RuScreen";
 import { KzScreen } from "../screens/KzScreen";
-import { TabIcon } from "../components/ui/TabIcon";
-import { Dimensions } from "react-native";
+
 
 const Tab = createBottomTabNavigator();
 

@@ -1,13 +1,20 @@
-import React, { useCallback, useEffect, useState } from "react";
-import { View } from "react-native";
+import React, {useEffect, useState } from "react";
+import { StatusBar, StyleSheet, View } from "react-native";
 import * as SplashScreen from "expo-splash-screen";
 import { MyNavigation } from "./src/navigation/MyNavigation";
 import * as Font from "expo-font";
+import constats from "./src/constats";
 
 SplashScreen.preventAutoHideAsync();
+const STYLES = ['default', 'dark-content', 'light-content'];
 
 export default function App() {
   const [appIsReady, setAppIsReady] = useState(false);
+
+  
+  const [statusBarStyle, setStatusBarStyle] = useState(STYLES[0]);
+  
+  
 
   useEffect(() => {
     async function prepare() {
@@ -49,6 +56,20 @@ export default function App() {
   }
 
   return (
-      <MyNavigation></MyNavigation>
+    <View style={styles.content}>
+       <StatusBar
+        animated={true}
+        backgroundColor={constats.MAIN_COLOR}
+        barStyle={statusBarStyle} />
+        <MyNavigation ></MyNavigation>
+    </View>
+      
   );
 }
+
+
+const styles = StyleSheet.create({
+  content:{
+    flex:1
+  }
+})
