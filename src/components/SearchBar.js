@@ -1,7 +1,6 @@
 import { AntDesign } from "@expo/vector-icons";
 import React, { useEffect, useState } from "react";
-import { Dimensions, Keyboard, FlatList, StyleSheet, Text, TextInput, View, Alert, TouchableOpacity } from "react-native";
-import { classic } from "react-native-web/dist/cjs/exports/StyleSheet/compiler";
+import { Dimensions, Keyboard, FlatList, StyleSheet, Text, TextInput, View, TouchableOpacity } from "react-native";
 import constats from "../constats";
 import { AppButton } from "./ui/AppButton";
 
