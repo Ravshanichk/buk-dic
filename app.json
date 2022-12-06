@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "dictionary-app",
+    "name": "Buketov-University",
     "slug": "dictionary-app",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -18,7 +18,8 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.exporavsh.dictionaryapp"
     },
     "android": {
       "adaptiveIcon": {
